@@ -1,5 +1,14 @@
 {
     "files.associations": {
         "ostream": "cpp"
-    }
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/*.o": true,
+        "**/*.o.cmd": true,
+        "**/*.a": true,
+        "**/*.so": true,
+        "**/*.out": true,
+      },
 }
