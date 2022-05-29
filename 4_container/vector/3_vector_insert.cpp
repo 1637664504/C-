@@ -12,6 +12,8 @@ int main(void)
     }
 
     //vector插入
+    a.insert(a.begin(),1);
+
     int b=7;
     vector<int>::iterator it;
     for(it=a.begin(); it<a.end(); it++)
@@ -22,7 +24,6 @@ int main(void)
             break;
         }
     }
-
 
     return 0;
 }
