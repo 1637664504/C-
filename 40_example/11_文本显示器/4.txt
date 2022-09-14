@@ -1,0 +1,20 @@
+https://en.cppreference.com
+
+https://www.cplusplus.com
+
+https://www.tutorialspoint.com/cplusplus
+
+https://www.learncpp.com
+
+https://github.com/fffaraz/awesomecpp
+
+https://stackoverflow.com
+
+cjson网址：https://sourceforge.net/projects/cjson/
+MyTinySTL网址：https://github.com/Alinshans/MyTinySTL
+oatpp网址：https://github.com/oatpp/oatpp
+Tinyhttpd网址：https://github.com/EZLippi/Tinyhttpd/blob/master/httpd.c
+nginx网址：http://nginx.org/
+Redis网址：https://redis.io/download
+
+This also sets the 'undofile' option, if available.  This will store the multi-level undo information in a file.  The result is that when you change a file, exit Vim, and then edit the file again, you can undo the changes made previously.  It's a very powerful and useful feature, at the cost of storing a file.  For more information see |undo-persistence|.
