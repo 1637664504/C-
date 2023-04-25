@@ -1,0 +1,19 @@
+env = Environment()
+env['CCFLAGS'] = '-g'
+env['CXXFLAGS'] = '-g'
+
+src_files=Split('1_serial串口读取.cpp')
+Program('a.out', src_files)
+
+
+src_files=Split('2_serial_串口设置属性.cpp')
+Program('b.out', src_files)
+
+# src_files=Split('3_serial串口_设置属性.cpp')
+# Program('c.out', src_files)
+
+src_files=Split('chassis_smd.cpp crc.c')
+Program('d.out', src_files, CCFLAGS='-g')
+
+# src_files=Split('crc.c')
+# Program('e.out', src_files,CCFLAGS='-g')
