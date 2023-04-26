@@ -1,0 +1,6 @@
+env = Environment()
+env['CCFLAGS'] = '-g'
+env['CXXFLAGS'] = '-g'
+
+src_files=Split('ch0x0_imu.cpp')
+env.Program('a.out', src_files)
