@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "scons",
+            // "preLaunchTask": "scons",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]

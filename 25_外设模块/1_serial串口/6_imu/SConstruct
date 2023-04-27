@@ -1,6 +1,6 @@
 env = Environment()
 env['CCFLAGS'] = '-g'
 env['CXXFLAGS'] = '-g'
-
-src_files=Split('ch0x0_imu.cpp')
+# env.Append(CXXFLAGS=['-Ddebug'])
+src_files=Split('Imu_server.cpp Imu_CH0X0.cpp Serial.cpp')
 env.Program('a.out', src_files)
