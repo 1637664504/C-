@@ -5,6 +5,7 @@
 class demo_impl_b:public demo_impl
 {
     void impl_opt(void);
+    int impl_get(void);
     ~demo_impl_b();
 };
 

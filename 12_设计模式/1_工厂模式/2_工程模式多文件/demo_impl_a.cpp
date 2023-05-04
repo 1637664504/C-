@@ -9,3 +9,10 @@ demo_impl_a::~demo_impl_a(void)
 {
     printf("demo_impl_a -- delete\n");
 }
+
+int demo_impl_a::impl_get(void)
+{
+    printf("demo_impl_a -- get\n");
+
+    return 0;
+}
