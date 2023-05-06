@@ -58,6 +58,7 @@ private:
     char serial_name[32];
     uint32_t bps;
 
+    void correct_read_buf();
     uint16_t cal_crc(struct serial_package *pack);
     void crc16_update(uint16_t *currectCrc, const uint8_t *src, uint32_t lengthInBytes);
 };

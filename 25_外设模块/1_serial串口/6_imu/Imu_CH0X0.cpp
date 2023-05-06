@@ -57,6 +57,21 @@ int Imu_CH0X0::parse_msg(uint8_t *msg, uint8_t len)
     return 0;
 }
 
+/* fix: ch0x0模块分两次读取:64+18 */
+void Imu_CH0X0::correct_read_buf(void)
+{
+    char recv[256];
+    int len;
+    int fd = serial.get_serial_fd();
+
+    while(1)
+    {
+        len = read(fd, recv, sizeof(recv));
+        if(len == 18)
+            break;
+    }
+}
+
 int Imu_CH0X0::sync_read(uint8_t *buf, uint32_t buf_len)
 {
     fd_set rd_set;
@@ -90,7 +105,7 @@ int Imu_CH0X0::sync_read(uint8_t *buf, uint32_t buf_len)
                 // ch0x0模块 串口读两次数据: 64+18
                 char recv[128];
                 len = read(fd, recv, 128);
-                if (len > 0 && len <= 64)
+                if ((len == 64) || (len == 18))
                 {
                     memcpy(buf + sum_len, recv, len);
                     sum_len += len;
@@ -100,6 +115,11 @@ int Imu_CH0X0::sync_read(uint8_t *buf, uint32_t buf_len)
                     printf("recv failed len=%d, error=%d::%s\n", len, errno, strerror(errno));
                     sum_len = -1;
                     break;
+                }
+                else if(len > 64)
+                {
+                    correct_read_buf();
+                    printf("同步串口数据\n");
                 }
 
                 if (sum_len > 64)
