@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
                           0x55, 0x3c, 0xe5, 0x98, 0x7f, 0x3f, 0x5a, 0x62, 0x32, 0x3d, 0x2f, 0x83, 0x10, 0x3d, 0xb0, 0x8d,
                           0xd8, 0x3a};
 
-    Imu_CH0X0 imuImpl("/dev/ttyUSB1", 115200);
+    Imu_CH0X0 imuImpl("/dev/ttyUSB0", 115200);
     imuImpl.init_serial();
     uint8_t buf[256];
     int32_t len;

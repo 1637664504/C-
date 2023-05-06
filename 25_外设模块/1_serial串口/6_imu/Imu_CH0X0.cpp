@@ -26,7 +26,7 @@ int Imu_CH0X0::init_serial()
 int Imu_CH0X0::parse_msg(uint8_t *msg, uint8_t len)
 {
     struct serial_package *pack = (struct serial_package *)msg;
-    if (pack->frame_head != FRAME_HEAD && pack->frame_head != FRAME_TYPE)
+    if (pack->frame_head != FRAME_HEAD && pack->frame_type != FRAME_TYPE)
     {
         printf("not CH0X0 seerial package\n");
         return -1;
