@@ -28,7 +28,7 @@ int Imu_CH0X0::parse_msg(uint8_t *msg, uint8_t len)
     struct serial_package *pack = (struct serial_package *)msg;
     if (pack->frame_head != FRAME_HEAD && pack->frame_type != FRAME_TYPE)
     {
-        printf("not CH0X0 seerial package\n");
+        printf("not CH0X0 serial package,len=%u\n",len);
         return -1;
     }
     // 浪费算力,没必要计算crc
@@ -105,7 +105,8 @@ int Imu_CH0X0::sync_read(uint8_t *buf, uint32_t buf_len)
                 // ch0x0模块 串口读两次数据: 64+18
                 char recv[128];
                 len = read(fd, recv, 128);
-                if ((len == 64) || (len == 18))
+                if (len == 64 ||                    // 第一个包:64
+                    (len == 18 && sum_len == 64))   // 第二个包:18
                 {
                     memcpy(buf + sum_len, recv, len);
                     sum_len += len;
@@ -116,13 +117,13 @@ int Imu_CH0X0::sync_read(uint8_t *buf, uint32_t buf_len)
                     sum_len = -1;
                     break;
                 }
-                else if(len > 64)
+                else
                 {
                     correct_read_buf();
                     printf("同步串口数据\n");
                 }
 
-                if (sum_len > 64)
+                if (sum_len == 82)
                     break;
             }
         }
