@@ -1,0 +1,9 @@
+env = Environment()
+env['CCFLAGS'] = '-g'
+env['CXXFLAGS'] = '-g'
+
+src_files=Split('cycleQueue.cpp shmCycleQueue.cpp test1.cpp')
+env.Program('a.out', src_files)
+
+src_files=Split('test2.cpp')
+env.Program('b.out', src_files)
