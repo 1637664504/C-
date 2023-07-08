@@ -1,0 +1,10 @@
+
+import os
+
+env = Environment()
+env['CCFLAGS'] = '-g -I /usr/include/opencv4'
+env['LIBS'] = ['opencv_core']
+
+src=Split('1_opencv_打开摄像头.cpp')
+target=os.path.splitext(src[0])[0]+'.out'
+env.Program(target,src)
