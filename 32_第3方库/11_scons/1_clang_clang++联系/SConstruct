@@ -1,0 +1,10 @@
+# clang编译器
+env = Environment(tools = ['default', 'clang'])
+env['CC']=['clang']
+env['CXX']=['clang++']
+
+src=['demo.c']
+env.Program('demo.out', src)
+
+src=['demo_cpp.cpp']
+env.Program('demo_cpp.out', src)
