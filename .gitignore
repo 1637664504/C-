@@ -31,5 +31,8 @@
 *.out
 *.app
 
-#scons
+# scons
 .sconsign.dblite
+
+# cmake
+build/
