@@ -3,7 +3,7 @@
         {
             "type": "process",
             "label": "cppbuild",
-            "command": "/usr/lib/ccache/g++",
+            "command": "/usr/bin/g++",
             "args": [
                 "-g","-Wall","-std=c++11",
                 "${file}",
