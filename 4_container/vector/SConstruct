@@ -1,0 +1,4 @@
+env = Environment()
+env['CCFLAGS'] = '-g'
+env['CXXFLAGS'] = '-g'
+env.Program('10_vector_array_数组相互转换.out', '10_vector_array_数组相互转换.cc')
