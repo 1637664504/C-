@@ -1,0 +1,8 @@
+env = Environment()
+env['CCFLAGS'] = '-g3'
+env['CXXFLAGS'] = '-g3'
+# env.Append(CXXFLAGS=['-Ddebug'])
+src_files=Split('11_struct_结构体默认值.cc')
+env.Program('11_struct_结构体默认值.out', '11_struct_结构体默认值.cc')
+env.Program('12_nullptr_空指针.out', '12_nullptr_空指针.cc')
+env.Program('13_class_enum.out', '13_class_enum.cc')
