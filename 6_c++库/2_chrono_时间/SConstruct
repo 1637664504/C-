@@ -1,0 +1,9 @@
+env = Environment()
+env['CCFLAGS'] = '-ggdb3 -O0'
+# env['CXXFLAGS'] = '-ggdb3 -O0'
+# env.Append(CXXFLAGS=['-Ddebug'])
+
+env['LIBS'] = ['pthread']
+
+src_files=Split('1_chrono_获取当前时间戳.cc')
+env.Program('1.out', src_files)
