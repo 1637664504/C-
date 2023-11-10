@@ -1,4 +1,3 @@
-#env = Environment(CC = 'g++')
 import os
 def gen_exec_file(file):
     return os.path.splitext(file)[0]+'.out'
@@ -13,4 +12,5 @@ def build_out(src_file):
     target = gen_exec_file(src[0])
     env.Program(target, src)
 
-build_out('1_hello.cpp')
+build_out('1_类_static成员_初始化.cc')
+build_out('2_类_static_指针成员初始化.cc')

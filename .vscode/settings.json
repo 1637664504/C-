@@ -54,15 +54,29 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "condition_variable": "cpp",
+        "set": "cpp",
+        "unordered_set": "cpp",
+        "mutex": "cpp",
+        "typeindex": "cpp",
+        "variant": "cpp"
     },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
         "**/*.o": true,
         "**/*.o.cmd": true,
         "**/*.a": true,
         "**/*.so": true,
         "**/*.out": true,
-      },
+        "**/.sconsign.dblite": true
+    },
+    "explorerExclude.backup": {},
 }
