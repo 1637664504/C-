@@ -27,19 +27,8 @@ def build_out_withFlag(src_file,cflag=""):
 env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
 # env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
 
-build_out("11_struct_结构体默认值.cc")
-build_out("12_nullptr_空指针.cc")
-build_out("13_class_enum增强枚举值.cc")
-build_out("14_auto自动类型推到.cc")
-build_out("15_constexpr_编译时计算表达式.cc")
-build_out("16_更简洁的初始化.cc")
-build_out_withFlag("17_更简洁的遍历.cc","-std=c++17")
 list_file=[
-    
+    "1_make_unique指针指针.cc"
 ]
 for file in list_file:
     build_out(file)
-
-
-# 特别的
-# env.Program("17_更简洁的遍历.out","17_更简洁的遍历.cc",CCFLAGS="-std=c++17")
