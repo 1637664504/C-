@@ -34,6 +34,10 @@ build_out("14_auto自动类型推到.cc")
 build_out("15_constexpr_编译时计算表达式.cc")
 build_out("16_更简洁的初始化.cc")
 build_out_withFlag("17_更简洁的遍历.cc","-std=c++17")
+# build_out_withFlag("18_import模块导入.cc 18.1_import_example.cc","-std=c++2a")
+# src= Split("18_import模块导入.cc 18.1_import_example.cc")
+# env.Program("18_import模块导入.out", src,CCFLAGS="-std=c++2a",)
+
 list_file=[
     
 ]
