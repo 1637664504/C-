@@ -34,5 +34,8 @@
 # scons
 .sconsign.dblite
 
+# c++
+*gcm.cache
+
 # cmake
 build/

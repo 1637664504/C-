@@ -76,7 +76,8 @@
         "**/*.a": true,
         "**/*.so": true,
         "**/*.out": true,
-        "**/.sconsign.dblite": true
+        "**/.sconsign.dblite": true,
+        "**/gcm.cache": true
     },
     "explorerExclude.backup": {},
 }
