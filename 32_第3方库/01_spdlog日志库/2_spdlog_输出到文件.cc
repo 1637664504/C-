@@ -12,7 +12,7 @@ int main(void)
     auto logger = spdlog::rotating_logger_mt(tag, log_path, file_size, file_num);
     spdlog::set_default_logger(logger);
     spdlog::set_level(spdlog::level::info);
-    spdlog::set_pattern("%Y%m%d-%H:%M:%S.%e [%n:%l] <%g:%#> %v");
+    spdlog::set_pattern("%Y%m%d-%H:%M:%S.%f [%n:%l] <%g:%#> %v");
 
     spdlog::info("start spdlog");
     SPDLOG_LOGGER_INFO(logger, "Support for floats {}", "hello world");

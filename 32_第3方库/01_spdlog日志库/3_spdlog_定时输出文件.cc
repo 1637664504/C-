@@ -16,8 +16,8 @@ int main(void)
     spdlog::set_pattern("%Y%m%d-%H:%M:%S.%e [%n:%l] <%g:%#> %v");
     spdlog::flush_every(chrono::seconds(3));
 
-    spdlog::info("start spdlog");
-    SPDLOG_LOGGER_INFO(logger, "Support for floats {}", "hello world");
+    spdlog::info("start spdlog");                                       // 不包含 文件:函数
+    SPDLOG_LOGGER_INFO(logger, "Support for floats {}", "hello world"); // 包含 文件:行数
 
     int count = 10;
     while (count--) {
