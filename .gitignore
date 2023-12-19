@@ -39,3 +39,6 @@
 
 # cmake
 build/
+
+# 自定义
+*.log
