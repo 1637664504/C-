@@ -16,6 +16,8 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "preLaunchTask": "scons",
+            // "preLaunchTask": "cppbuild",
+            // "preLaunchTask": "make",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
@@ -28,6 +30,8 @@
                     "ignoreFailures": true
                 }
             ]
+            // "miDebuggerPath": "/usr/bin/gdb",
+            // "miDebuggerServerAddress": "127.0.0.1:6699"
         },
     ]
 }
