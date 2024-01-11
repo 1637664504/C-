@@ -15,11 +15,19 @@ int main(void)
 
     cout << "student[2]="<<student[2] <<endl;
     cout << "student[3]="<<student[3] <<endl;   //输出空,且添加了一个为空的 student[3] {3,""}
-    cout << "student.size="<<student.size()<<endl;
-    map<int,string>::iterator it;
+    cout << "student.size=" << student.size() << endl;
+
+    // c++98
+    map<int, string>::iterator it;
     for(it=student.begin(); it!=student.end(); it++)
     {
         cout << (*it).first << ": " <<(*it).second <<endl;
+    }
+
+    // c++11
+    for(auto it:student)
+    {
+        cout << it.first << ": " <<it.second <<endl;
     }
     return 0;
 }

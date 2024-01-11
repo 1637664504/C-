@@ -11,12 +11,15 @@ else:
     env['CXX']=['clang++']
 
 # 2.自动生成后缀.out
+def gen_exec_file(file):
+    return os.path.splitext(file)[0]+'.out'
+
 def build_out(src_file):
     src = Split(src_file)
-    target = os.path.splitext(src[0])[0]+'.out'
+    target = gen_exec_file(src[0])
     env.Program(target, src)
 
 env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
 # env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
 
-build_out("demo.cc")
+build_out("1_strstr.cc")

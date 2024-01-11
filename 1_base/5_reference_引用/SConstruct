@@ -2,10 +2,14 @@ import os
 def gen_exec_file(file):
     return os.path.splitext(file)[0]+'.out'
 
-# clang编译器
-env = Environment(tools = ['default', 'clang'])
-env['CC']=['clang']
-env['CXX']=['clang++']
+# 1.编译器
+if os.system("which 123"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools = ['default', 'clang'])
+    env['CC']=['clang']
+    env['CXX']=['clang++']
 env['CCFLAGS'] = '-ggdb3 -O0 -Wall'
 
 def build_out(src_file):
@@ -16,3 +20,4 @@ def build_out(src_file):
 build_out('1_引用作为参数.cpp')
 build_out('2_返回引用.cpp')
 build_out('3_类-引用成员初始化.cc')
+build_out('4_指针转引用.cc')
