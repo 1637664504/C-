@@ -38,7 +38,7 @@ int main()
     while(fgets(buff, MSG_MAX_SIZE, stdin) != NULL)
     {
                 /*发布消息*/
-                mosquitto_publish(mosq,NULL,"Gai爷:",strlen(buff)+1,buff,0,0);
+                mosquitto_publish(mosq,NULL,"mqtt_test:",strlen(buff)+1,buff,0,0);
                 memset(buff,0,sizeof(buff));
     }
     mosquitto_destroy(mosq);

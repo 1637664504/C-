@@ -24,7 +24,7 @@ void my_connect_callback(struct mosquitto *mosq, void *userdata, int result)
     int i;
     if(!result){
         /* Subscribe to broker information topics on successful connect. */
-        mosquitto_subscribe(mosq, NULL, "Gai爷:", 2);
+        mosquitto_subscribe(mosq, NULL, "mqtt_test:", 2);
     }else{
         fprintf(stderr, "Connect failed\n");
     }
