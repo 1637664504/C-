@@ -1,4 +1,23 @@
-env = Environment()
-env['CCFLAGS'] = '-g'
-env['CXXFLAGS'] = '-g'
-env.Program('10_vector_array_数组相互转换.out', '10_vector_array_数组相互转换.cc')
+import os
+
+env = None
+# 1.编译器
+if os.system("which clang"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools = ['default', 'clang'])
+    env['CC']=['clang']
+    env['CXX']=['clang++']
+
+# 2.自动生成后缀.out
+def build_out(src_file):
+    src = Split(src_file)
+    target = os.path.splitext(src[0])[0]+'.out'
+    env.Program(target, src)
+
+env['CCFLAGS'] = ' -ggdb3 -O0 -Wall'         # gdb 调试开关
+# env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
+
+build_out('11_vector_int定位.cc')
+build_out('12_vector_string定位.cc')

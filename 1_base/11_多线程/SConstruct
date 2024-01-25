@@ -15,3 +15,5 @@ def build_out(src_file):
     env.Program(target, src)
 
 build_out('3_线程传递_地址_引用参数.cc')
+build_out('5_thread_线程_类的成员函数.cc')
+build_out('5.1_thread_线程_类的成员函数.cc')

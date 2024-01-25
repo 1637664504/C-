@@ -16,7 +16,7 @@ def build_out(src_file):
     target = os.path.splitext(src[0])[0]+'.out'
     env.Program(target, src)
 
-env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
+env['CCFLAGS'] = ' -ggdb3 -O0 -Wall'         # gdb 调试开关
 # env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
 
 build_out("demo.cc")

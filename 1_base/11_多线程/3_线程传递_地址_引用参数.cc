@@ -3,6 +3,11 @@
 #include <thread>
 using namespace std;
 
+void thread_value_args(int value)
+{
+    value += 1;
+    printf("value %d\n", value);
+}
 
 void thread_ref_function(int& value)
 {
@@ -19,10 +24,12 @@ void thread_point_function(int* value)
 int main(void)
 {
     int value = 42;
+    std::thread thread0(thread_value_args, value);
     std::thread thread1(thread_ref_function, ref(value));
     std::thread thread2(thread_point_function, &value);
 
     // 等待线程完成
+    thread0.join();
     thread1.join();
     thread2.join();
 
