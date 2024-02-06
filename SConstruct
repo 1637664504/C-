@@ -6,17 +6,15 @@ if os.system("which clang"):
     env = Environment()
 else:
     # clang编译器
-    env = Environment(tools = ['default', 'clang'])
-    env['CC']=['clang']
-    env['CXX']=['clang++']
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
 
-# 2.自动生成后缀.out
-def build_out(src_file):
-    src = Split(src_file)
-    target = os.path.splitext(src[0])[0]+'.out'
-    env.Program(target, src)
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+src_list = [
+    "demo.c",
+]
 
-env['CCFLAGS'] = ' -ggdb3 -O0 -Wall'         # gdb 调试开关
-# env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
-
-build_out("demo.cc")
+for src in src_list:
+    env.Program(Split(src))
