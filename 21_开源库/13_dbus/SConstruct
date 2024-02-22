@@ -11,9 +11,18 @@ else:
     env["CXX"] = ["clang++"]
 
 env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
-env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["CCFLAGS"] = " -ggdb3 -O0 "  # gdb 调试开关
+
+env["LIBS"] = ["glib-2.0", "pthread"]
+env.MergeFlags(
+    [
+        "!pkg-config dbus-1 --cflags --libs",
+    ]
+)
 src_list = [
-    "demo.c",
+    "1_dbus_server.c", "2_dbus_client.c",
+    # "3_dbus_c_example.c",
+    "4_dbus_c_example.c",
 ]
 
 for src in src_list:
