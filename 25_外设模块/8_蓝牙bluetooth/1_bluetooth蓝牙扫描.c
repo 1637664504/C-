@@ -43,6 +43,8 @@ int main(int argc, char **argv)
         if (hci_read_remote_name(sock, &(ii + i)->bdaddr, sizeof(name),
                                  name, 0) < 0)
             strcpy(name, "[unknown]");
+
+        // 9C:2E:A1:48:47:8A 小米手机
         printf("%s %s\n", addr, name);
     }
 
@@ -50,3 +52,16 @@ int main(int argc, char **argv)
     close(sock);
     return 0;
 }
+
+/* 运行结果
+70:D8:23:EA:ED:DA carter
+70:D8:23:E5:53:11 wp
+68:13:24:58:68:21 安的Mate 40 Pro
+C4:E1:A1:A0:A8:62 OPPO K3
+AC:C4:BD:2E:2D:A0 APP
+9C:2E:A1:48:47:8A 小米手机
+DA:84:46:64:2C:6B [unknown]
+48:F3:F3:5A:AA:DD 添添旋转智能屏
+4C:EB:BD:19:DE:82 [unknown]
+A8:98:92:EF:88:D4 OPPO Reno7 5G
+ */

@@ -15,6 +15,8 @@ env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
 env["LIBS"]=["bluetooth"]
 src_list = [
     "1_bluetooth蓝牙扫描.c",
+    "2_bluetooth_读写实例.c",
+    "3_蓝牙bluetooth_rfcomm_server.c","4_蓝牙bluetooth_rccomm_client.c",
 ]
 
 for src in src_list:
