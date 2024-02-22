@@ -10,7 +10,8 @@ int main(int argc, char **argv)
     int s, status;
     // char dest[18] = "01:23:45:67:89:AB";
     // char dest[18] = "08:B3:AF:76:69:1E";
-    char dest[18] = "B8:2D:28:42:7B:59";    // local bt addr
+    // char dest[18] = "B8:2D:28:42:7B:59";    // local bt addr
+    char dest[18] = "B8:2D:28:42:7B:59";    //307 bt addr
 
     // allocate a socket
     s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
