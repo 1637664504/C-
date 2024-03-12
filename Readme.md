@@ -4,14 +4,14 @@
 
 调试器 gdb
 
-编译器 g++
+编译器 g++ / clang
 
-系统 linux: debain-kali
+系统 ubuntu/debian
 
-构建工具 makefile
+构建工具 scons (python语法的make/cmake构建)
 
 github 无法使用ssh推送代码，迁移到gitee:
-https://gitee.com/zero2200/cpp-practice
+git@gitee.com:zero2200/3_cpp-practice.git
 
 # 1.C++基本语法
 ## 1.string字符串
@@ -27,15 +27,16 @@ https://gitee.com/zero2200/cpp-practice
 - [引用参数](1_base/5_reference_引用/1_引用作为参数.cpp)
 - [引用参数-->返回引用结果](1_base/5_reference_引用/2_引用参数_返回引用.cpp)
 - [string字符串引用](1_base/5_reference_引用/6_string_函数引用_修改字符串.cpp)
-- [类的引用成员 初始化](1_base/5_reference_引用/3_类-引用成员初始化.cc)
+- [类的引用成员 初始化: class.&a 初始化](1_base/5_reference_引用/3_类-引用成员初始化.cc)
 - [指针转引用 方法 --> 仅函数引用参数有效](1_base/5_reference_引用/4_指针转引用.cc)
-- [char 数组做引用](1_base/5_reference_引用/5_char_做引用.cc) --编译失败
+- [char\[\] 数组转引用](1_base/5_reference_引用/5_char_做引用.cc) -->编译失败
 
 
 ## 3.class类
 构造
-- [类的引用成员 初始化](1_base/5_reference_引用/3_类-引用成员初始化.cc)
-- [类的-类成员_初始化](3_class/4_class类构造_析构/2_类的-类成员_初始化.cpp)
+- [类的-成员 初始化](3_class/4_class类构造_析构/2_类的-类成员_初始化.cpp)
+- [类的-引用成员 初始化](1_base/5_reference_引用/3_类-引用成员初始化.cc)
+
 - [父类-引用子类]() --父类不能引用子类的函数,成员, 设计不合理,请重新设计
 - [copy_constructor拷贝构造](3_class/5_拷贝构造copy_constructor/5_copy_constructor拷贝构造.cpp)
 - [copy_constructor无拷贝构造 执行一次构造,二次析构](3_class/5_拷贝构造copy_constructor/6_copy_constructor_无拷贝构造_1次构造_2次析构_异常现象.cpp)
@@ -43,14 +44,14 @@ https://gitee.com/zero2200/cpp-practice
 
 虚函数
 - [1.无虚函数重写 +gdb查看内存](3_class/8_virtual虚函数/1_无虚函数-重写.cpp)
-- [2.虚函数重新 +gdb查看内存](3_class/8_virtual虚函数/1.1_有虚函数_重写.cpp)
-- [类占用空间大小](3_class/6_sizeof_class类大小/1_class_sizeof.cpp)
-- [sizeof class 虚函数占用空间大小](3_class/6_sizeof_class类大小/2_sizeof_虚函数-对齐-静态数据大小.cpp)
-- [sizeof class 类包含多个虚函数](3_class/6_sizeof_class类大小/3_sizeof_类包含多个虚函数.cpp)
+- [2.虚函数重写 +gdb查看内存](3_class/8_virtual虚函数/1.1_有虚函数_重写.cpp)
+- [sizeof class 类 占用空间大小](3_class/6_sizeof_class类大小/1_class_sizeof.cpp)
+- [sizeof class 虚函数 占用空间大小](3_class/6_sizeof_class类大小/2_sizeof_虚函数-对齐-静态数据大小.cpp)
+- [sizeof class 类多个虚函数 占用空间大小](3_class/6_sizeof_class类大小/3_sizeof_类包含多个虚函数.cpp)
 
 static
-- [类_static成员_初始化](1_base/9_static/class_static/1_类_static成员_初始化.cc)
-- [类_static指针成员_初始化](1_base/9_static/class_static/2_类_static_指针成员_初始化.cc)
+- [类-static成员 初始化](1_base/9_static/class_static/1_类_static成员_初始化.cc)
+- [类-static指针成员 初始化](1_base/9_static/class_static/2_类_static_指针成员_初始化.cc)
 
 多态
 - [多态函数表查看](3_class/7_多态/1_多态查看.cpp)
@@ -59,7 +60,7 @@ static
 ## 5.vector/list/map 数据结构
 ### 1.vector 动态矢量数组
 - [vector实例](4_container/vector)
-- vector 通过数组初始化 [10_vector_array_数组相互转换.cc](4_container/vector/10_vector_array_数组相互转换.cc)
+- vector 通过数组初始化 [vector_array_数组相互转换.cc](4_container/vector/10_vector_array_数组相互转换.cc)
 
 ### 2.list列表
 - [list 实例](4_container/list)
@@ -67,8 +68,8 @@ static
 ### 3.map 映射/字典
 - [map 实例](4_container/map)
 - [map c++20现代化遍历](4_container/map/12_map_函数指针_现代化初始化.cc)
-- [map 函数指针](4_container/map/11_map_函数指针.cc)
-- [类构造函数中_初始化map](4_container/map/13_map_类里面初始化.cc)
+- [map <string, 函数指针>](4_container/map/11_map_函数指针.cc)
+- [类构造函数中, 初始化map](4_container/map/13_map_类里面初始化.cc)
 
 
 ### queue队列
@@ -97,8 +98,8 @@ static
 - [智能指针](7_关键字/1_unique智能指针/1_make_unique指针指针.cc)
 
 ## 7.int float double基本数据类型
-- [int 2进制 8进制 16进制表达](1_base/8_int_float_double基本数据类型/1_int_2进制_8进制_16进制表达.cc)
-- [sizeof char int long ,long long, float,double占用内存大小](1_base/12_sizeof_对象占用内存空间大小/1_limit_number_size.cpp)
+- [int 2进制 8进制 16进制表达方式](1_base/8_int_float_double基本数据类型/1_int_2进制_8进制_16进制表达.cc)
+- [sizeof char, int, long ,long long, float, double占用内存大小](1_base/12_sizeof_对象占用内存空间大小/1_limit_number_size.cpp)
 
 
 ## 11.try_catch accsert 异常
@@ -108,7 +109,7 @@ static
 
 ## 12.templat模板
 - [template 模板: add](5_template/1_template_add实现.cpp)
-- [template 模板: swap交互](5_template/2_template_swap实现.cpp)
+- [template 模板: swap交换](5_template/2_template_swap实现.cpp)
 
 # 2.默认库
 ## thread线程库
