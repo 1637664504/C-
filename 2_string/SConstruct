@@ -1,3 +1,4 @@
+## 模板1
 import os
 
 env = None
@@ -6,20 +7,15 @@ if os.system("which clang"):
     env = Environment()
 else:
     # clang编译器
-    env = Environment(tools = ['default', 'clang'])
-    env['CC']=['clang']
-    env['CXX']=['clang++']
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
 
-# 2.自动生成后缀.out
-def gen_exec_file(file):
-    return os.path.splitext(file)[0]+'.out'
-
-def build_out(src_file):
-    src = Split(src_file)
-    target = gen_exec_file(src[0])
-    env.Program(target, src)
-
-env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
-# env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
-
-build_out("5_int_float转string.cc")
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+src_list = [
+    "1_string_拼接格式化.cpp",
+    "3_string_函数返回string值.cpp",
+]
+for src in src_list:
+    env.Program(Split(src))

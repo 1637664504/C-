@@ -19,4 +19,5 @@ def build_out(src_file):
 env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
 # env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
 
+build_out("2_类的-类成员_初始化.cc")
 build_out("3_类成员_引用主类.cc")

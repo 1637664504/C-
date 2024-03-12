@@ -19,4 +19,5 @@ def build_out(src_file):
 env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
 # env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
 
-build_out("1_stringstream_字符串拼接.cc")
+build_out("1_stringstream_字符串拼接_格式化_snprintf.cc")
+build_out("2_stringstream_字符串_格式化拆分_sscanf.cc")

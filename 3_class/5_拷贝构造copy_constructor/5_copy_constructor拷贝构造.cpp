@@ -38,11 +38,11 @@ int main(void)
 }
 
 /*
-p address=0x55bb1d0e2eb0,val=16
-p address=0x55bb1d0e2ed0,val=17
+p address=0x55f0c6304eb0,val=16
+p address=0x55f0c6304ed0,val=17
 
 结论:
 	1.指向两个不同的地址
-	2.不像示例5.1 运行错误:free double error
+	2.不像示例6 运行错误:free double error
 
 */

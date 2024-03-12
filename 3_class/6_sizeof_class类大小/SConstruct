@@ -1,0 +1,9 @@
+## 模板2
+env = Environment()
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+
+env.Program("1_class_sizeof.cpp")
+env.Program("2_sizeof_虚函数-对齐-静态数据大小.cpp")
+env.Program("3_sizeof_类包含多个虚函数.cpp")
+env.Program("4_sizeof_类复杂的对齐.cpp")

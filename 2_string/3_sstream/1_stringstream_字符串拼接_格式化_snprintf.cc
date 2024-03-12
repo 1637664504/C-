@@ -13,3 +13,7 @@ int main() {
 
     return 0;
 }
+
+/* 运行结果
+The sum of 10 and 20 is 30.
+ */

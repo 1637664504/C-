@@ -11,6 +11,10 @@ class demo{
 	{
 		a = num;
 	}
+	~demo()
+	{
+		cout << "demo finfished "<<this<<endl;
+	}
 
 	void show()
 	{
@@ -45,14 +49,16 @@ public:
 
 int main(void)
 {
+	// 只执行了一次构造函数
 	demo A(100);
 	demo B = A;
 	B.show();
 
-	//A,B 指向相同的内存地址
-	example C(16);
-	example D = C;
-	D.show_pointer();
+	// 1. 只执行了一次构造函数
+	// 2. C.p , D.p 指向相同的内存地址
+	// example C(16);
+	// example D = C;
+	// D.show_pointer();
 
 	return 0;
 }
@@ -65,6 +71,7 @@ free(): double free detected in tcache 2
 zsh: IOT instruction  ./a.out
 
 问题原因:
+C.p , D.p 指向相同的内存地址
 C,D执行析构函数时，
 	1. C free(p)
 	2. D free(p), 释放第二次，提示错误

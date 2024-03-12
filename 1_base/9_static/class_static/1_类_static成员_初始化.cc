@@ -11,12 +11,12 @@ public:
     }
 };
 
-// int example::a;
-int example::a=10;
+int example::a;     //不加此句编译错误
+// int example::a=10;
 
 int main ()
 {
     example test(5);
- 
+
    return 0;
 }

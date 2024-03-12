@@ -11,13 +11,12 @@ else:
     env["CC"] = ["clang"]
     env["CXX"] = ["clang++"]
 
-env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
 env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
 src_list = [
-    "1_引用作为参数.cpp",
-    "2_引用参数_返回引用.cpp",
-    "3_类-引用成员初始化.cc",
-    "4_指针转引用.cc",
+    "1_无虚函数-重写.cpp",
+    "1.1_有虚函数_重写.cpp",
+    "2_纯虚函数类-实例化失败.cpp",
 ]
 for src in src_list:
     env.Program(Split(src))

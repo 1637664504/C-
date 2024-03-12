@@ -14,3 +14,4 @@ def build_out(src_file):
     env.Program(target, src)
 
 build_out('1_hello.cpp')
+build_out("3_limit_number_size.cpp")

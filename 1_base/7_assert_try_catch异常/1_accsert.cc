@@ -11,3 +11,8 @@ int main(void)
 
     return 0;
 }
+
+/* 运行结果
+1_accsert.out: 1_accsert.cc:9: int main(): Assertion `p' failed.
+Aborted
+ */

@@ -40,9 +40,9 @@ int main(void)
 }
 
 /*测试结果:
-
-p point thread 45
-p ref thread 47
+value 43
+p ref thread 44
+p point thread 47
 Modified variable value: 47
 
  */

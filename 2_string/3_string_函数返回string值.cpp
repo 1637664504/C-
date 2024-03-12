@@ -16,11 +16,11 @@ string fun_return_string()
 
 int main(void)
 {
-    string str ="aaa";
-    cout << "修改前 " << str <<endl;
+    string buf ="aaa";
+    cout << "修改前 " << buf <<endl;
 
-    str = fun_return_string();
-    cout << "修改后 " << str <<endl;
+    buf = fun_return_string();
+    cout << "修改后 " << buf <<endl;
 
     return 0;
 }

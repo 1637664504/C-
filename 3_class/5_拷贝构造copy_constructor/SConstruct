@@ -1,0 +1,6 @@
+## 模板2
+env = Environment()
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env.Program("5_copy_constructor拷贝构造.cpp")
+env.Program("6_copy_constructor_无拷贝构造_1次构造_2次析构_异常现象.cpp")
