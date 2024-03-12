@@ -1,0 +1,5 @@
+env = Environment()
+env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
+env["CCFLAGS"] = " -g3 -O0 -std=c++2a"
+
+env.Program("1_format_字符串格式化.cc")

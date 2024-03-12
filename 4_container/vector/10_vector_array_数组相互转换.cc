@@ -17,9 +17,8 @@ int main(void)
     // 1.数组转换vector
     int arr[] = { 1,2,3,4,5 };
     vector<int> a(arr, arr + 5);
-
     show_vector(a);
-    
+
     // 2.数组转换vector -- 获取数组长度
     // int arr[] = { 1,2,3,4,5 };
     int arr_len = sizeof(arr) / sizeof(arr[0]);
