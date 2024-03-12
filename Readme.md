@@ -58,10 +58,17 @@ static
 
 ## 5.vector/list/map 数据结构
 ### 1.vector 动态矢量数组
+- [vector实例](4_container/vector)
 - vector 通过数组初始化 [10_vector_array_数组相互转换.cc](4_container/vector/10_vector_array_数组相互转换.cc)
 
 ### 2.list列表
 - [list 实例](4_container/list)
+
+### 3.map 映射/字典
+- [map 实例](4_container/map)
+- [map c++20现代化遍历](4_container/map/12_map_函数指针_现代化初始化.cc)
+- [map 函数指针](4_container/map/11_map_函数指针.cc)
+- [类构造函数中_初始化map](4_container/map/13_map_类里面初始化.cc)
 
 
 ### queue队列
@@ -86,6 +93,9 @@ static
 - [usring namespace 命名空间_直接引用](1_base/13_namespace/2_namespace_usring命名空间_直接引用.cpp)
 - [namespace 命名空间 实例](1_base/13_namespace/3_多文件namespace实例)
 
+### unique智能指针
+- [智能指针](7_关键字/1_unique智能指针/1_make_unique指针指针.cc)
+
 ## 7.int float double基本数据类型
 - [int 2进制 8进制 16进制表达](1_base/8_int_float_double基本数据类型/1_int_2进制_8进制_16进制表达.cc)
 - [sizeof char int long ,long long, float,double占用内存大小](1_base/12_sizeof_对象占用内存空间大小/1_limit_number_size.cpp)
@@ -95,10 +105,20 @@ static
 - [accsert 断言](1_base/7_assert_try_catch异常/1_accsert.cc)
 - [uint8_t unsigned char 计算溢出](1_base/3_整数溢出/1_1字节溢出.cpp)
 
+
+## 12.templat模板
+- [template 模板: add](5_template/1_template_add实现.cpp)
+- [template 模板: swap交互](5_template/2_template_swap实现.cpp)
+
 # 2.默认库
 ## thread线程库
 - [线程参数_值_地址_引用](1_base/11_多线程/3_线程传递_地址_引用参数.cc)
 - [线程函数_为类的成员函数](1_base/11_多线程/5_thread_线程_类的成员函数.cc)
 
+## chrono 时间
+- [chrono_获取当前时间戳](6_c++库/2_chrono_时间/1_chrono_获取当前时间戳.cc)
 
 # 3.开源库
+- [spdlog日志](32_第3方库/01_spdlog日志库)
+- [mqtt 话题订阅发布](32_第3方库/12_mqtt)
+- [蓝牙bluetooth](25_外设模块/8_蓝牙bluetooth)
