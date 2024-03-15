@@ -1,0 +1,18 @@
+## 模板2
+env = Environment()
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["LIBS"]=["zmqpp","zmq","protobuf"]
+env.Program("1_zmqpp_sub订阅端.cc")
+env.Program("2_zmqpp_pub发布端.cc")
+
+# 编译protobuf
+cmd="protoc message.proto --cpp_out=."
+Command("message.pb.h","message.proto",cmd)
+env.Program("3_zmqpp_server.out",Split("3_zmqpp_server.cc message.pb.cc"))
+env.Program("4_zmqpp_client.out",Split("4_zmqpp_client.cc message.pb.cc"))
+
+env.Program("5_zmq_server.c")
+env.Program("6_zmq_client.c")
+env.Program("7_zmq_server_发送接受_结构体.c")
+env.Program("8_zmq_client_发送接受_结构体.c")
