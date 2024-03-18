@@ -1,3 +1,4 @@
+## 模板1
 import os
 
 env = None
@@ -6,48 +7,33 @@ if os.system("which clang"):
     env = Environment()
 else:
     # clang编译器
-    env = Environment(tools = ['default', 'clang'])
-    env['CC']=['clang']
-    env['CXX']=['clang++']
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
 
-# 2.自动生成后缀.out
-def gen_exec_file(file):
-    return os.path.splitext(file)[0]+'.out'
-
-def build_out(src_file):
-    src = Split(src_file)
-    target = gen_exec_file(src[0])
-    env.Program(target, src)
-    
-def build_out_withFlag(src_file,cflag=""):
-    src = Split(src_file)
-    target = gen_exec_file(src[0])
-    env.Program(target, src,CCFLAGS=cflag,)
-
-env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
-# env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
-
-build_out("11_struct_结构体默认值.cc")
-build_out("12_nullptr_空指针.cc")
-build_out("13_class_enum增强枚举值.cc")
-build_out("14_auto自动类型推到.cc")
-build_out("15_constexpr_编译时计算表达式.cc")
-build_out("16_更简洁的初始化.cc")
-build_out_withFlag("17_更简洁的遍历.cc","-std=c++17")
-
-
-# list_file=[
-    
-# ]
-# for file in list_file:
-#     build_out(file)
+env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["CCFLAGS"] += " -std=c++2a"
+src_list = [
+    "1_unique_ptr_智能指针.cc",
+    "3_vector_替代C数组.cc",
+    "11_struct_结构体默认值.cc",
+    "12_nullptr_空指针.cc",
+    "13_class_enum增强枚举值.cc",
+    "14_auto自动类型推到.cc",
+    "15_constexpr_编译时计算表达式.cc",
+    "16_更简洁的初始化.cc",
+    "17_更简洁的遍历.cc",
+]
+for src in src_list:
+    env.Program(Split(src))
 
 
 # 特别的
 # env.Program("17_更简洁的遍历.out","17_更简洁的遍历.cc",CCFLAGS="-std=c++17")
 
 # c++20 modules g++, clang++实现不一样
-env['CXX']=['g++']
-env.Object("example.o","example.cpp",CCFLAGS="-std=c++2a -fmodules-ts")
-src=Split("example.cpp 18_import模块导入.cc")
-env.Program("18_import模块导入.out", src,CCFLAGS="-std=c++2a -fmodules-ts")
+# env['CXX']=['g++']
+# env.Object("example.o","example.cpp",CCFLAGS="-std=c++2a -fmodules-ts")
+# src=Split("example.cpp 18_import模块导入.cc")
+# env.Program("18_import模块导入.out", src,CCFLAGS="-std=c++2a -fmodules-ts")

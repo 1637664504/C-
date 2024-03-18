@@ -40,5 +40,9 @@
 # cmake
 build/
 
+# protobuf
+*.pb.cc
+*.pb.h
+
 # 自定义
 *.log
