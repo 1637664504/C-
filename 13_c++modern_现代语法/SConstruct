@@ -17,6 +17,7 @@ env["CCFLAGS"] += " -std=c++2a"
 src_list = [
     "1_unique_ptr_智能指针.cc",
     "3_vector_替代C数组.cc",
+    "3.1_使用c++标准容器库_map_set_list.cc",
     "11_struct_结构体默认值.cc",
     "12_nullptr_空指针.cc",
     "13_class_enum增强枚举值.cc",

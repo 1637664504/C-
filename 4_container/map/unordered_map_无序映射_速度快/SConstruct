@@ -12,11 +12,9 @@ else:
     env["CXX"] = ["clang++"]
 
 env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
-env["CCFLAGS"] = " -ggdb3 -O0 -Wall -std=c++20"  # gdb 调试开关
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
 src_list = [
-    "1_stringstream_字符串拼接_格式化_snprintf.cc",
-    "2_stringstream_字符串_格式化拆分_sscanf.cc",
-    "3_format字符串格式化.cc",
+    "1_unordered_map_无序映射.cc",
 ]
 for src in src_list:
     env.Program(Split(src))

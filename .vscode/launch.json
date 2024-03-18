@@ -7,6 +7,9 @@
         {
             "name": "(gdb) 启动",
             "type": "cppdbg",
+            "MIMode": "gdb",
+            // "type": "lldb",
+            // "MIMode": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.out",
             "args": [],
@@ -14,23 +17,21 @@
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
-            "preLaunchTask": "scons",
-            "MIMode": "lldb",
-            "MIMode": "gdb",
             // "preLaunchTask": "cppbuild",
             // "preLaunchTask": "make",
-            // "setupCommands": [
-            //     {
-            //         "description": "为 gdb 启用整齐打印",
-            //         "text": "-enable-pretty-printing",
-            //         "ignoreFailures": true
-            //     },
-            //     {
-            //         "description": "将反汇编风格设置为 Intel",
-            //         "text": "-gdb-set disassembly-flavor intel",
-            //         "ignoreFailures": true
-            //     }
-            // ]
+            "preLaunchTask": "scons",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
             // "miDebuggerPath": "/usr/bin/gdb",
             // "miDebuggerServerAddress": "127.0.0.1:6699"
         },

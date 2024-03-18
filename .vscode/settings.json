@@ -62,7 +62,12 @@
         "unordered_set": "cpp",
         "mutex": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "csignal": "cpp",
+        "strstream": "cpp",
+        "codecvt": "cpp",
+        "future": "cpp",
+        "cfenv": "cpp"
     },
     "files.exclude": {
         "**/.git": true,

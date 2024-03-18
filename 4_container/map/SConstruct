@@ -1,3 +1,4 @@
+## 模板1
 import os
 
 env = None
@@ -6,24 +7,27 @@ if os.system("which clang"):
     env = Environment()
 else:
     # clang编译器
-    env = Environment(tools = ['default', 'clang'])
-    env['CC']=['clang']
-    env['CXX']=['clang++']
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
 
-# 2.自动生成后缀.out
-def gen_exec_file(file):
-    return os.path.splitext(file)[0]+'.out'
-
-def build_out(src_file):
-    src = Split(src_file)
-    target = gen_exec_file(src[0])
-    env.Program(target, src)
-
-env['CCFLAGS'] = ' -ggdb3 -O0'         # gdb 调试开关
-# env['CCFLAGS'] += ' -DDEBUG'          # Debug log开关
-
-build_out("1_map_增_遍历.cpp")
-build_out("10_map_string_string.cc")
-build_out("11_map_函数指针.cc")
-build_out("12_map_函数指针_现代化初始化.cc")
-build_out("13_map_类里面初始化.cc")
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+src_list = [
+    "1_map_增_遍历.cpp",
+    "2_map_insert_增.cpp",
+    "3.1_map_reverse_iterator_反向迭代器.cpp",
+    "3.2_map_iterator_下角标遍历_慎用.cpp",
+    "3_map_iterator_迭代器.cpp",
+    "4_map_find_搜索.cpp",
+    "5_map_erase_删.cpp",
+    "6_map_swap_交换.cpp",
+    "7_map_sort_排序.cpp",
+    "10_map_string_string.cc",
+    "11_map_函数指针.cc",
+    "12_map_函数指针_现代化初始化.cc",
+    "13_map_类里面初始化.cc",
+    "16_c++20现代化的初始化.cc",
+]
+for src in src_list:
+    env.Program(Split(src))
