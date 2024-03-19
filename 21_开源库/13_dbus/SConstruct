@@ -12,16 +12,14 @@ else:
 
 env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
 env["CCFLAGS"] = " -ggdb3 -O0 "  # gdb 调试开关
-
-env["LIBS"] = ["glib-2.0", "pthread"]
 env.MergeFlags(
     [
         "!pkg-config dbus-1 --cflags --libs",
     ]
 )
 src_list = [
-    "1_dbus_server.c",
-    "2_dbus_client.c",
+    # "1_dbus_server.c",
+    # "2_dbus_client.c",
     # "3_dbus_c_example.c",
     "4_dbus_c_example.c",
     "5_dbus-example.c",
@@ -33,14 +31,13 @@ for src in src_list:
     env.Program(Split(src))
 
 # 配置文件拷贝
-# os.system(f"sudo cp com.flork.dbus.conf /etc/dbus-1/system.d/com.flork.dbus.conf")
-config_file = "com.flork.dbus.conf"
-target_file = "/etc/dbus-1/system.d/com.flork.dbus.conf"
-cmd=f"sudo cp com.flork.dbus.conf /etc/dbus-1/system.d/com.flork.dbus.conf"
-target2 =env.Command(target_file,config_file,cmd)
+target_dir = "/etc/dbus-1/system.d"
+config_file_list = ["com.flork.dbus.conf","com.test.dbus.conf","test.signal.sink.conf"]
+for config_file in config_file_list:
+    target_file = f"{target_dir}/{config_file}"
+    cmd=f"sudo cp {config_file} {target_file}"
+    print(f"cmd {cmd}")
+    Command(target_file,config_file,cmd)        # 不生效
+    # Command(target_file,config_file,Copy('$TARGET', '$SOURCE')) # 不生效
 
-# os.system(f"sudo cp com.test.dbus.conf /etc/dbus-1/system.d/com.test.dbus.conf")
-config_file = "com.test.dbus.conf"
-target_file = "/etc/dbus-1/system.d/com.test.dbus.conf"
-cmd=f"sudo cp com.test.dbus.conf /etc/dbus-1/system.d/com.test.dbus.conf"
-target2 =env.Command(target_file,config_file,cmd)
+os.system(f"sudo cp *.conf {target_dir}")

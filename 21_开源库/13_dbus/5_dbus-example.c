@@ -202,7 +202,8 @@ void reply_to_method_call(DBusMessage *msg, DBusConnection *conn)
 {
     DBusMessage *reply;
     DBusMessageIter args;
-    bool stat = true;
+    // bool stat = true;
+    dbus_bool_t stat = true;
     dbus_uint32_t level = 21614;
     dbus_uint32_t serial = 0;
     char *param = "";
@@ -426,5 +427,6 @@ int main(int argc, char **argv)
         printf("Syntax: dbus-example [send|receive|listen|query] [<param>]\n");
         return 1;
     }
+    printf("dbus end---\n");
     return 0;
 }

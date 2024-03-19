@@ -1,0 +1,8 @@
+
+src_file = "1.txt"
+target_file = "1.txt.md5"
+cmd=f"md5sum {src_file} > {target_file}"
+Command(target_file,src_file,cmd)
+
+dst_file = "1.txt.bak"
+Command(dst_file,src_file,Copy('$TARGET', '$SOURCE'))
