@@ -20,10 +20,27 @@ env.MergeFlags(
     ]
 )
 src_list = [
-    "1_dbus_server.c", "2_dbus_client.c",
+    "1_dbus_server.c",
+    "2_dbus_client.c",
     # "3_dbus_c_example.c",
     "4_dbus_c_example.c",
+    "5_dbus-example.c",
+    "6_dbus_service.c",
+    "7_dbus_client.c",
 ]
 
 for src in src_list:
     env.Program(Split(src))
+
+# 配置文件拷贝
+# os.system(f"sudo cp com.flork.dbus.conf /etc/dbus-1/system.d/com.flork.dbus.conf")
+config_file = "com.flork.dbus.conf"
+target_file = "/etc/dbus-1/system.d/com.flork.dbus.conf"
+cmd=f"sudo cp com.flork.dbus.conf /etc/dbus-1/system.d/com.flork.dbus.conf"
+target2 =env.Command(target_file,config_file,cmd)
+
+# os.system(f"sudo cp com.test.dbus.conf /etc/dbus-1/system.d/com.test.dbus.conf")
+config_file = "com.test.dbus.conf"
+target_file = "/etc/dbus-1/system.d/com.test.dbus.conf"
+cmd=f"sudo cp com.test.dbus.conf /etc/dbus-1/system.d/com.test.dbus.conf"
+target2 =env.Command(target_file,config_file,cmd)
