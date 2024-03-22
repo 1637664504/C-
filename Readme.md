@@ -120,11 +120,69 @@ static
 - [chrono_获取当前时间戳](6_c++库/2_chrono_时间/1_chrono_获取当前时间戳.cc)
 
 # 3.开源库
-- [spdlog日志](32_第3方库/01_spdlog日志库)
-- [mqtt 话题订阅发布](32_第3方库/12_mqtt)
-- [蓝牙bluetooth](25_外设模块/8_蓝牙bluetooth)
+### spdlog日志库
 
-ZeroMQ 通信中间件
+ [1_spdlog_输出终端.cc](21_开源库\05_spdlog日志库\1_spdlog_输出终端.cc) 
+
+ [2_spdlog_输出到文件.cc](21_开源库\05_spdlog日志库\2_spdlog_输出到文件.cc) 
+
+ [3_spdlog_定时输出文件.cc](21_开源库\05_spdlog日志库\3_spdlog_定时输出文件.cc) 
+
+ [4_spdlog_不同的logger_函数输出效果.cc](21_开源库\05_spdlog日志库\4_spdlog_不同的logger_函数输出效果.cc) 
+
+ [11_sdblog_格式化实例.cc](21_开源库\05_spdlog日志库\11_sdblog_格式化实例.cc) 
+
+ [12_spdlog_输出到文件.cc](21_开源库\05_spdlog日志库\12_spdlog_输出到文件.cc) 
+
+ [13_spdlog_自定义格式输出_pattern.cc](21_开源库\05_spdlog日志库\13_spdlog_自定义格式输出_pattern.cc) 
+
+
+
+### json
+
+jsoncpp库
+
+ [1_jsonCpp_解析字符串_增.删.改.查.保存.cc](21_开源库\04_json\1_JsonCpp\1_jsonCpp_解析字符串_增.删.改.查.保存.cc) 
+
+ [2_jsonCpp_从文件读取.cc](21_开源库\04_json\1_JsonCpp\2_jsonCpp_从文件读取.cc) 
+
+
+
+nlohmann-json -->推荐，语法更简洁，像python
+
+ [1_nlohmann_json_解析字符串.cc](21_开源库\04_json\2_nlohmann-json\1_nlohmann_json_解析字符串.cc) 
+
+
+
+### MQTT消息通信
+
+ [1_mosquitto_publish发布.cc](21_开源库\12_mqtt\1_mosquitto_publish发布.cc) 
+
+ [2_mosquitto_subscribe订阅.cc](21_开源库\12_mqtt\2_mosquitto_subscribe订阅.cc) 
+
+
+
+### dbus通信
+
+ [1_dbus_server.c](21_开源库\13_dbus\1_dbus_server.c) 
+
+ [2_dbus_client.c](21_开源库\13_dbus\2_dbus_client.c) 
+
+ [3_dbus_c_example.c](21_开源库\13_dbus\3_dbus_c_example.c) 
+
+ [4_dbus_c_example.c](21_开源库\13_dbus\4_dbus_c_example.c) 
+
+ [5_dbus-example.c](21_开源库\13_dbus\5_dbus-example.c) 
+
+ [6_bus_service_common.h](21_开源库\13_dbus\6_bus_service_common.h) 
+
+ [6_dbus_service.c](21_开源库\13_dbus\6_dbus_service.c) 
+
+ [7_dbus_client.c](21_开源库\13_dbus\7_dbus_client.c) 
+
+
+
+### ZeroMQ 通信中间件
 
 [1_zmqpp_sub订阅端.cc](21_开源库/02_zeromq/1_zmqpp_sub订阅端.cc)
 
