@@ -13,10 +13,10 @@ else:
 
 env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
 env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
-
+env["LIBS"]=["boost_system","boost_thread","pthread"]
 src_list = [
-    "1_nlohmann_json_解析字符串.cc",
-    "2_nlohmann_json_读取文件.cc"
+    "1_http_service_Boost.Asio.cc",
+    "2_http_client_Boost.Asio.cc",
 ]
 for src in src_list:
     env.Program(Split(src))

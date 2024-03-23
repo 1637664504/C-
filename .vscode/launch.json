@@ -6,10 +6,10 @@
     "configurations": [
         {
             "name": "(gdb) 启动",
-            "type": "cppdbg",
-            "MIMode": "gdb",
-            // "type": "lldb",
-            // "MIMode": "lldb",
+            // "type": "cppdbg",
+            // "MIMode": "gdb",
+            "type": "lldb",
+            "MIMode": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.out",
             "args": [],
@@ -32,8 +32,6 @@
                     "ignoreFailures": true
                 }
             ]
-            // "miDebuggerPath": "/usr/bin/gdb",
-            // "miDebuggerServerAddress": "127.0.0.1:6699"
         },
     ]
 }
