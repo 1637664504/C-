@@ -26,6 +26,7 @@ src_list = [
     "10_map_string_string.cc",
     "11_map_函数指针.cc",
     "12_map_函数指针_现代化初始化.cc",
+    "12.1_map_函数指针_关联_类的成员函数_static.cc",
     "13_map_类里面初始化.cc",
     "16_c++20现代化的初始化.cc",
 ]

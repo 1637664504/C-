@@ -11,8 +11,8 @@ else:
     env["CC"] = ["clang"]
     env["CXX"] = ["clang++"]
 
-env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
-env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["PROGSUFFIX"] = ".out"              # 可执行文件后缀.out
+env["CCFLAGS"] = " -g3 -O0 -Wall"       # gdb 调试
 src_list = [
     "demo.cc",
 ]
@@ -22,6 +22,6 @@ for src in src_list:
 
 ## 模板2
 env = Environment()
-env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
-env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["PROGSUFFIX"] = ".out"            # 可执行文件后缀.out
+env["CCFLAGS"] = " -g3 -O0 -Wall"  # gdb 调试
 env.Program("demo.c")
