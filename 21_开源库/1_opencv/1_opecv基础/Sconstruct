@@ -1,0 +1,6 @@
+env = Environment()
+env['CCFLAGS'] = ' -I/usr/include/opencv4'
+env['LIBS'] = Split('opencv_highgui  opencv_imgcodecs opencv_imgproc opencv_core')
+
+file = Split('1_opencv_显示图片.cpp')
+env.Program('1_opencv_显示图片.out', file)

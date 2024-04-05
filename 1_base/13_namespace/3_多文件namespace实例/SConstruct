@@ -1,0 +1,6 @@
+env = Environment()
+env['CCFLAGS'] = '-g'
+env['CXXFLAGS'] = '-g'
+# env.Append(CXXFLAGS=['-Ddebug','-Wall'])
+src_files=Split('main.cpp add.cpp')
+env.Program('a.out', src_files)

@@ -1,0 +1,43 @@
+import os
+
+env = None
+# 1.编译器
+if os.system("which clang"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
+
+env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 "  # gdb 调试开关
+env.MergeFlags(
+    [
+        "!pkg-config dbus-1 --cflags --libs",
+    ]
+)
+src_list = [
+    # "1_dbus_server.c",
+    # "2_dbus_client.c",
+    # "3_dbus_c_example.c",
+    "4_dbus_c_example.c",
+    "5_dbus-example.c",
+    "6_dbus_service.c",
+    "7_dbus_client.c",
+]
+
+for src in src_list:
+    env.Program(Split(src))
+
+# 配置文件拷贝
+target_dir = "/etc/dbus-1/system.d"
+config_file_list = ["com.flork.dbus.conf","com.test.dbus.conf","test.signal.sink.conf"]
+for config_file in config_file_list:
+    target_file = f"{target_dir}/{config_file}"
+    cmd=f"sudo cp {config_file} {target_file}"
+    print(f"cmd {cmd}")
+    Command(target_file,config_file,cmd)        # 不生效
+    # Command(target_file,config_file,Copy('$TARGET', '$SOURCE')) # 不生效
+
+os.system(f"sudo cp *.conf {target_dir}")

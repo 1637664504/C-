@@ -1,0 +1,35 @@
+## 模板1
+import os
+
+env = None
+# 1.编译器
+if os.system("which clang"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
+
+env["PROGSUFFIX"] = ".out"              # 可执行后缀.out
+env["CCFLAGS"] = " -g3 -O0 -Wall"    # gdb 调试开关
+src_list = [
+    "1_vector.cpp",
+    "2_vector_itor_遍历.cpp",
+    "3_vector_insert.cpp",
+    "5.1_vector头尾-front-back-begin-end.cpp",
+    "5_vector定位_at.cpp",
+    "6_vector_迭代器计算.cpp",
+    "7_vector_size大小.cpp",
+    "8_vector_insert_earse_modify_增-删-改.cpp",
+    "9_vector_capacity容量.cpp",
+    "10_vector_array_数组相互转换.cc",
+    "11_vector_int定位.cc",
+    "12_vector_string_引用定位.cc",
+    "13_vector_现代化初始化.cc",
+    "31_exp_vector搜索.cpp",
+    "exp1-不同容器比较.cpp",
+    "exp2-容器比较.cpp",
+]
+for src in src_list:
+    env.Program(Split(src))

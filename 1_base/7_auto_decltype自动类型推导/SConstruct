@@ -1,0 +1,6 @@
+env = Environment()
+env['CCFLAGS'] = '-ggdb3 -O0'
+env['CCFLAGS'] += ' -Wall'
+
+env.Program('1_decltype_自动类型推导.out', '1_decltype_自动类型推导.cpp')
+env.Program('2_decltype_推导类.out', '2_decltype_推导类.cpp')

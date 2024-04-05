@@ -1,0 +1,40 @@
+## 模板1
+import os
+
+env = None
+# 1.编译器
+if os.system("which clang"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
+
+env["PROGSUFFIX"] = ".out"  # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["CCFLAGS"] += " -std=c++2a"
+src_list = [
+    "1_unique_ptr_智能指针.cc",
+    "3_vector_替代C数组.cc",
+    "3.1_使用c++标准容器库_map_set_list.cc",
+    "11_struct_结构体默认值.cc",
+    "12_nullptr_空指针.cc",
+    "13_class_enum增强枚举值.cc",
+    "14_auto自动类型推到.cc",
+    "15_constexpr_编译时计算表达式.cc",
+    "16_更简洁的初始化.cc",
+    "17_更简洁的遍历.cc",
+]
+for src in src_list:
+    env.Program(Split(src))
+
+
+# 特别的
+# env.Program("17_更简洁的遍历.out","17_更简洁的遍历.cc",CCFLAGS="-std=c++17")
+
+# c++20 modules g++, clang++实现不一样
+# env['CXX']=['g++']
+# env.Object("example.o","example.cpp",CCFLAGS="-std=c++2a -fmodules-ts")
+# src=Split("example.cpp 18_import模块导入.cc")
+# env.Program("18_import模块导入.out", src,CCFLAGS="-std=c++2a -fmodules-ts")

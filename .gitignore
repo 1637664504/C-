@@ -31,5 +31,18 @@
 *.out
 *.app
 
-#scons
+# scons
 .sconsign.dblite
+
+# c++
+*gcm.cache
+
+# cmake
+build/
+
+# protobuf
+*.pb.cc
+*.pb.h
+
+# 自定义
+*.log

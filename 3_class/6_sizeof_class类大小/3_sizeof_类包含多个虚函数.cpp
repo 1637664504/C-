@@ -19,3 +19,6 @@ int main()
     cout<<sizeof(A)<<endl; // 8
     return 0;
 }
+/* 运行结果
+8
+*/

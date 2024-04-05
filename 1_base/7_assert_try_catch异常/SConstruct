@@ -1,0 +1,17 @@
+import os
+
+env = None
+# 优先clang编译
+def try_first_clang():
+    global env
+    if os.system('which clang') == 0:
+        env = Environment(tools = ['default', 'clang'])
+        env['CC']=['clang']
+        env['CXX']=['clang++']
+        print('clang enable')
+    else:
+        env = Environment()
+
+try_first_clang()
+src=['1_accsert.cc']
+env.Program('1_accsert.out', src)

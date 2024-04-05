@@ -1,5 +1,7 @@
 ## 三、基本函数实现
 
+微软教程在线文档: https://learn.microsoft.com/zh-cn/cpp/standard-library/vector-class?view=msvc-170
+
 1.构造函数
 
 - vector():创建一个空vector

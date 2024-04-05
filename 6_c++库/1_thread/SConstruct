@@ -1,0 +1,9 @@
+env = Environment()
+env['CCFLAGS'] = '-ggdb3 -O0'
+# env['CXXFLAGS'] = '-ggdb3 -O0'
+# env.Append(CXXFLAGS=['-Ddebug'])
+
+env['LIBS'] = ['pthread']
+
+src_files=Split('1_thread_异步定时器.cc')
+env.Program('1_thread_异步定时器.out', src_files)

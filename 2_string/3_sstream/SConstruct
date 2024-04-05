@@ -1,0 +1,24 @@
+## 模板1
+import os
+
+env = None
+# 1.编译器
+if os.system("which clang"):
+    env = Environment()
+else:
+    # clang编译器
+    env = Environment(tools=["default", "clang"])
+    env["CC"] = ["clang"]
+    env["CXX"] = ["clang++"]
+
+env["PROGSUFFIX"] = ".out"            # 可执行后缀.out
+env["CCFLAGS"] = " -ggdb3 -O0 -Wall"  # gdb 调试开关
+env["LIBS"]=["fmt"]
+src_list = [
+    "1_stringstream_字符串拼接_格式化_snprintf.cc",
+    "2_stringstream_字符串_格式化拆分_sscanf.cc",
+    # "3_format字符串格式化.cc", 编译不通过
+    "4_fmt_format_字符串格式化.cc",
+]
+for src in src_list:
+    env.Program(Split(src))
