@@ -1,0 +1,8 @@
+## 模板2
+env = Environment()
+env["PROGSUFFIX"] = ".out"              # 可执行文件后缀.out
+env["CCFLAGS"] = " -g3 -O0 -Wall"       # gdb 调试
+env["LIBS"] = ["gflags","glog","pthread"]
+env.Program("1_gflags_命令行参数.cc")
+env.Program("21_glogs_日志.cc")
+env.Program("22_glog_写入文件.cc")
